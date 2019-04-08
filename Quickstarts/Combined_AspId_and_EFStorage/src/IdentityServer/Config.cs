@@ -65,6 +65,7 @@ namespace IdentityServerAspNetIdentity
                     ClientId = "mvc",
                     ClientName = "MVC Client",
                     AllowedGrantTypes = GrantTypes.Hybrid,
+                    RequireConsent=false, //KA
 
                     ClientSecrets =
                     {

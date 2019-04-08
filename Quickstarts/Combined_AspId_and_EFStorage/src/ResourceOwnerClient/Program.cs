@@ -48,16 +48,19 @@ namespace ResourceOwnerClient
             var apiClient = new HttpClient();
             apiClient.SetBearerToken(tokenResponse.AccessToken);
 
+         while (Console.ReadKey().Key == ConsoleKey.Spacebar)
+         {
             var response = await apiClient.GetAsync("http://localhost:5001/identity");
             if (!response.IsSuccessStatusCode)
             {
-                Console.WriteLine(response.StatusCode);
+               Console.WriteLine(response.StatusCode);
             }
             else
             {
-                var content = response.Content.ReadAsStringAsync().Result;
-                Console.WriteLine(JArray.Parse(content));
+               var content = response.Content.ReadAsStringAsync().Result;
+               Console.WriteLine(JArray.Parse(content));
             }
+         }
         }
     }
 }
